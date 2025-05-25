@@ -2,6 +2,7 @@
 
 Proyek ini dibuat untuk memenuhi tugas besar pembuatan proyek dalam mata kuliah Basis Data. Tujuan utama dari proyek ini adalah untuk mengubah data dari repositori penelitian kami (Google Sheets) ke dalam sistem basis data MySQL (MariaDB). Tabel tersebut merupakan tabel <i>unnormalized</i> yang akan kami ubah menjadi bentuk 3NF sebagai berikut:
 
+```mermaid
 erDiagram
     User ||--o{ Tweet : creates
     TweetCategory }o--|| Tweet : includes
@@ -47,3 +48,10 @@ erDiagram
         int category_id_2 FK
         float ratio
     }
+```
+
+## Instalasi
+
+Gunakan MariaDB versi 11.8.0, disarankan untuk menggunakan WAMP daripada XAMPP karena banyaknya bug dan versi MariaDB yang lawas dari XAMPP. Ikuti petunjuk berikut:
+
+Anda bisa mengeksekusi file install.sh di Terminal ketika MariaDB sedang berjalan.

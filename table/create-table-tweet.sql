@@ -1,0 +1,7 @@
+CREATE TABLE Tweet (
+    id INT AUTOINCREMENT() PRIMARY KEY,
+    user_id INT NOT NULL,
+    content VARCHAR(150) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIME(),
+    FOREIGN KEY (user_id) REFERENCES User(id)
+);
