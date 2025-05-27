@@ -1,5 +1,0 @@
-CREATE TABLE User (
-    id INT AUTOINCREMENT() PRIMARY KEY,
-    username VARCHAR(15) NOT NULL,
-    password VARCHAR(15) NOT NULL
-);
