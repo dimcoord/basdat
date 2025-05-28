@@ -6,9 +6,3 @@ IDENTIFIED BY '';
 GRANT *
 ON TweetCount.* 
 TO 'user1'@'localhost';
-
-USE TweetCount;
-
-INSERT INTO User(username) VALUES(
-  'user1'
-);

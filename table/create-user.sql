@@ -1,6 +1,0 @@
-USE TweetCount;
-
-CREATE TABLE User(
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  username VARCHAR(15) NOT NULL
-);

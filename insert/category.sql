@@ -1,0 +1,1 @@
+INSERT INTO Category(name) VALUES ('Pro'), ('Netral'), ('Kontra');
