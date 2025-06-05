@@ -4,11 +4,11 @@ Proyek ini dibuat untuk memenuhi tugas besar pembuatan proyek dalam mata kuliah 
 
 ```mermaid
 erDiagram
-    User ||--o{ Tweet : creates
-    TweetCategory }o--|| Tweet : includes
-    TweetCategory }o--|| Category : includes
-    Category ||--o{ CategoryCount : has
-    Category ||--o{ CategoryRatio : part_of
+    User ||--o{ Tweet : membuat
+    TweetCategory }o--|| Tweet : meliputi
+    TweetCategory }o--|| Category : meliputi
+    Category ||--o{ CategoryCount : memiliki
+    Category ||--o{ CategoryRatio : bagian_dari
 
     User {
         int id PK
@@ -55,14 +55,14 @@ erDiagram
 ### Tanpa CSV
 Gunakan MariaDB versi 11.8.0, disarankan untuk menggunakan WAMP daripada XAMPP karena banyaknya bug dan versi MariaDB yang lawas dari XAMPP. Ikuti petunjuk berikut:
 
-Anda bisa mengeksekusi file install.sql di Terminal ketika MariaDB sedang berjalan.
+Anda bisa mengeksekusi file `install.sql` di Terminal ketika MariaDB sedang berjalan.
 
 Insert terlebih dahulu kategori yang Anda akan gunakan. Selanjutnya, Anda dapat meng-insert data satu per satu.
 
 ### Dengan CSV
-Anda dapat mengonversikan file .csv ke dalam query SQL dengan menggunakan script sqlconverter.py, pastikan Anda memiliki Python versi terbaru.
+Anda dapat mengonversikan file `.csv` ke dalam query SQL dengan menggunakan script `sqlconverter.py`, pastikan Anda memiliki Python versi terbaru.
 
-Anda bisa mengeksekusi file install.sql di Terminal ketika MariaDB sedang berjalan. 
+Anda bisa mengeksekusi file `install.sql` di Terminal ketika MariaDB sedang berjalan. 
 
 Buat terlebih dahulu kategori yang Anda akan gunakan. Gunakan perintah berikut untuk menggunakan script:
-python3 sqlconverter.py <nama file>.csv <nama database> --category_id <sesuai data id dari tabel Category> -o <nama file>.sql
+`python3 sqlconverter.py <nama file>.csv <nama database> --category_id <sesuai data id dari tabel Category> -o <nama file>.sql`
