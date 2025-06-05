@@ -1,3 +1,5 @@
+-- Database (DDL)
+CREATE DATABASE IF NOT EXISTS TweetCount;
 USE TweetCount;
 
 -- Tabel (DDL)
