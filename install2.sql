@@ -334,25 +334,13 @@ INSERT INTO `Tweet` (`likes`, `content`, `username`, `category_id`) VALUES (1, '
 INSERT INTO `Tweet` (`likes`, `content`, `username`, `category_id`) VALUES (78, '@lebihdariteman_ @VIVAcoid Entah lah org org goblok tuh nontonin tokoh agama yang kek gini dakwah apaan lu anjg puki presetan mau lu gus mau lu habib kelakuan kek setan tetap aja di mata gua setan https://t.co/YXRpzf2Ca0', 'jesuseaterz', 3);
 INSERT INTO `Tweet` (`likes`, `content`, `username`, `category_id`) VALUES (0, 'ternyata banyak banget tingkah si gus M sama habib² itu yang kebongkar salah satu nya ini. malu²in banget mbk sadar kamu ini di lecehkan.. jijik banget dengerin nya ya Allah dakwah apaan begitu https://t.co/s7yqGHILep', 'cookiessysy', 3);
 
--- Select (Subquery)
+-- Select (Join & Subquery)
 SELECT
-  CASE 
-    WHEN category_id = 1 THEN 'Pro'
-    WHEN category_id = 2 THEN 'Netral'
-    WHEN category_id = 3 THEN 'Kontra'
-    ELSE 'Lainnya'
-    END AS kategori, 
-  COUNT(id) AS jumlah_tweet
-FROM Tweet
-GROUP BY category_id;
-
-SELECT
-  CASE 
-    WHEN category_id = 1 THEN 'Pro'
-    WHEN category_id = 2 THEN 'Netral'
-    WHEN category_id = 3 THEN 'Kontra'
-    ELSE 'Lainnya'
-    END AS kategori,
-  (COUNT(id)/(SELECT COUNT(id) FROM Tweet) * 100) AS persentase
-FROM Tweet
-GROUP BY category_id;
+  c.name AS kategori,
+  COUNT(t.id) AS jumlah_tweet,
+  (COUNT(t.id)/(SELECT COUNT(id) FROM Tweet) * 100) AS persentase
+FROM Tweet AS t
+JOIN Category AS c
+ON t.category_id = c.id
+GROUP BY category_id
+ORDER BY jumlah_tweet;
