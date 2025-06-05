@@ -1,7 +1,5 @@
 SELECT
-  c.id,
-  (SUM(t.id)/COUNT(t.id) * 100) AS ratio
-FROM Tweet AS t
-JOIN Category AS c
-ON t.category_id = c.id
-ORDER BY category_id;
+  category_id,
+  (COUNT(id)/(SELECT COUNT(id) FROM Tweet) * 100) AS persentase
+FROM Tweet
+GROUP BY category_id;
