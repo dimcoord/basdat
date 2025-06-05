@@ -1,0 +1,11 @@
+DELIMITER $$
+
+CREATE TRIGGER OnDeleteCategory
+BEFORE DELETE ON Category
+FOR EACH ROW
+BEGIN
+    DELETE FROM Tweet
+    WHERE category_id = OLD.id;
+END$$
+
+DELIMITER ;
