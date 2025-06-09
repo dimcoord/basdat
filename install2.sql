@@ -1,13 +1,3 @@
--- User (DCL)
-USE mysql;
-
-CREATE USER IF NOT EXISTS 'public'@'localhost'
-IDENTIFIED BY '';
-
-GRANT SELECT
-ON TweetCount.* 
-TO 'public'@'localhost';
-
 -- Database (DDL)
 CREATE DATABASE IF NOT EXISTS TweetCount;
 USE TweetCount;
@@ -27,6 +17,18 @@ CREATE TABLE Tweet (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (category_id) REFERENCES Category(id)
 );
+
+-- User (DCL)
+USE mysql;
+
+CREATE USER IF NOT EXISTS 'public'@'localhost'
+IDENTIFIED BY '';
+
+GRANT SELECT
+ON TweetCount.*
+TO 'public'@'localhost';
+
+USE TweetCount;
 
 -- Trigger
 DELIMITER $$
